@@ -19,23 +19,35 @@ function playRound(playerSelection, computerSelection) {
 
   console.log("Player chose: " + playerSelection + " | " + "Computer chose: " + computerSelection);
 
-  if (playerSelection === computerSelection) {
-    return("Draw!");
-  } else if (playerSelection == "Rock" && computerSelection == "Paper") {
-    return("You lose! Rock gets covered by Paper!");
-  } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-    return("You win! Rock smashes Scissors!");
-  } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-    return("You win! Paper covers Rock!");
-  } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-    return("You lose! Paper gets cut by Scissors!");
-  } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-    return("You lose! Scissors get smashes by Rock!");
-  } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-    return("You win! Scissors cut Paper!");
-  }  else {
+  if (playerSelection !== "Rock" && "Paper" && "Scissors") {
     alert('Please enter a valid choice. ("Rock", "Paper", or "Scissors")')
     return playRound();
+  } else if (playerSelection === computerSelection) {
+    return("Draw!");
+  } 
+  // Player selects Rock
+  if (playerSelection == "Rock") {
+    if (computerSelection == "Paper") {
+      return("You lose! Rock gets covered by Paper!");
+    } else {
+      return("You win! Rock smashes Scissors!");
+    }
   }
-  
+  // Player selects Paper
+  if (playerSelection == "Paper") {
+    if (computerSelection == "Scissors") {
+      return("You lose! Paper gets cut by Scissors!");
+    } else {
+      return("You win! Paper covers Rock!");
+    }
+  }
+  // Player selects Scissors
+  if (playerSelection == "Scissors") {
+    if (computerSelection == "Rock") {
+      return("You lose! Scissors get smashed by Rock!");
+    } else {
+      return("You win! Scissors cut Paper!");
+    }
+  }
+
 }
