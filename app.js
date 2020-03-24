@@ -1,3 +1,4 @@
+// Function that creates the Computers choice at random
 function computerPlay() {
   const result = Math.random();
 
@@ -10,6 +11,7 @@ function computerPlay() {
   }
 }
 
+// Function that runs computerPlay() and then creates a players choice and compares the two
 function playRound(playerSelection, computerSelection) {
   let choice = prompt("Rock, Paper, or Scissors?");
   computerSelection = computerPlay();
