@@ -75,6 +75,7 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+// Loops playRound 5 times to play a full game of rock paper scissors
 function game() {
   // Loop to play through 5 games
   for (i = 1; i < 6; i++) {
