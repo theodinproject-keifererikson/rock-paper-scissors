@@ -6,7 +6,7 @@ body {
   height: 500px;
   font-family: Helvetica, 'Dank Mono', Consolas;
   font-size: 1.1rem;
-  background-color: #4F6367;
+  background-color: #37393A;
 }
 
 .container {
@@ -21,7 +21,7 @@ body {
   height: 148px;
   margin: 50px auto;
   text-align: center;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   font-size: 1.5rem;
   color: white;
 }
@@ -57,7 +57,7 @@ body {
   width: 90px;
   height: 30px;
   color: #EEF5DB;
-  background-color: #FE5F55;
+  background-color: #767B91;
   border: 0;
   font-family: Helvetica, 'Dank Mono', Consolas;
 }
@@ -66,32 +66,15 @@ body {
   height: 80px;
   width: 200px;
   color: #EEF5DB;
-  background-color: #FE5F55;
+  background-color: #39B54A;
   border: 0;
   font-family: Helvetica, 'Dank Mono', Consolas;
   font-size: 2.0rem;
   margin: 0 auto;
-}
-
-.play-again-btn {
-  height: 80px;
-  width: 200px;
-  color: #EEF5DB;
-  background-color: #FE5F55;
-  border: 0;
-  font-family: Helvetica, 'Dank Mono', Consolas;
-  font-size: 2.0rem;
-  margin: 0 auto;
-}
-
-.container2 {
-  width: 70%;
-  margin: 0 auto;
-  text-align: center;
 }
 
 .clicked {
-  background-color: green;
+  background-color: #39B54A;
 }
 
 .hidden {
