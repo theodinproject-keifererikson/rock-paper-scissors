@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 500px;
+  font-family: Helvetica, 'Dank Mono', Consolas;
+  font-size: 1.1rem;
+  background-color: #4F6367;
+}
+
+.container {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.text {
+  flex: 1;
+  justify-content: space-between;
+  height: 148px;
+  margin: 50px auto;
+  text-align: center;
+  border: 1px solid white;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.round-result {
+  padding-top: 20px;
+}
+
+.win {
+  padding-top: 30px;
+  font-size: 2rem;
+}
+
+.player-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 50px; 
+  height: 150px;
+}
+
+.computer-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 50px; 
+  height: 150px;
+}
+
+.rps-btn {
+  width: 90px;
+  height: 30px;
+  color: #EEF5DB;
+  background-color: #FE5F55;
+  border: 0;
+  font-family: Helvetica, 'Dank Mono', Consolas;
+}
+
+.play-btn {
+  height: 80px;
+  width: 200px;
+  color: #EEF5DB;
+  background-color: #FE5F55;
+  border: 0;
+  font-family: Helvetica, 'Dank Mono', Consolas;
+  font-size: 2.0rem;
+  margin: 0 auto;
+}
+
+.play-again-btn {
+  height: 80px;
+  width: 200px;
+  color: #EEF5DB;
+  background-color: #FE5F55;
+  border: 0;
+  font-family: Helvetica, 'Dank Mono', Consolas;
+  font-size: 2.0rem;
+  margin: 0 auto;
+}
+
+.container2 {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clicked {
+  background-color: green;
+}
+
+.hidden {
+  display: none;
+}

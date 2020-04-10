@@ -1,104 +1,157 @@
 let playerScore = 0;
 let computerScore = 0;
-let roundResult;
 let roundNumber = 0;
+let roundResult;
+const resultBox = document.querySelector('.round-result');
+const winBox = document.querySelector('.win');
+const playBtn = document.querySelector('.play-btn');
+const playAgainBtn = document.querySelector('.play-again-btn');
+const allButtons = document.querySelectorAll('button');
+const rpsButtons = document.querySelectorAll('.rps-btn');
+
+playBtn.addEventListener('click', () => {
+  hiddenToggle(playBtn);
+  hiddenToggle(rpsButtons);
+  resultBox.textContent = 'Choose your weapon!';
+});
+
+playAgainBtn.addEventListener('click', () => {
+  hiddenToggle(playAgainBtn);
+  clickedReset();
+  reset();
+  resultBox.textContent = 'Choose your weapon!';
+});
+
+function hiddenToggle(group) {
+  if (group.length > 1) {
+    group.forEach((e) => {
+      e.classList.toggle('hidden');
+    });
+  } else {
+    group.classList.toggle('hidden');
+  }
+}
+
+// ROCK EVENT LISTENER
+const pickRock = document.querySelector('.player-rock');
+pickRock.addEventListener('click', () => { 
+  clickedReset();
+  playerChoice('Rock');
+  pickRock.classList.add('clicked');
+ });
+// PAPER EVEN LISTENER
+const pickPaper = document.querySelector('.player-paper');
+pickPaper.addEventListener('click', () => { 
+  clickedReset();
+  playerChoice('Paper'); 
+  pickPaper.classList.add('clicked');
+});
+// SCISSORS EVENT LISTENER
+const pickScissors = document.querySelector('.player-scissors');
+pickScissors.addEventListener('click', () => { 
+  clickedReset();
+  playerChoice('Scissors');
+  pickScissors.classList.add('clicked');
+});
 
 // Function that creates the Computers choice at random
-function computerPlay() {
+function computerChoice() {
   const result = Math.random();
+  const npcRock     = document.querySelector('.computer-rock');
+  const npcPaper    = document.querySelector('.computer-paper');
+  const npcScissors = document.querySelector('.computer-scissors');
 
-  if (result <= 0.33) {
-    return("Rock");
+  if (result <= 0.33) {   
+    npcRock.classList.add('clicked'); 
+    return('Rock');
   } else if (result <= 0.66) {
-    return("Paper"); 
+    npcPaper.classList.add('clicked');
+    return('Paper'); 
   } else {
-    return("Scissors");
+    npcScissors.classList.add('clicked');
+    return('Scissors');
   }
 }
 
-// Function that runs computerPlay() and then creates a players choice and compares the two
+function playerChoice(playerInput) {
+  playerSelection = playerInput;
+  computerSelection = computerChoice();
+  playRound(playerSelection, computerSelection);
+}
+
+// Function that runs computerPlay() and then creates a computers choice and compares the two
 function playRound(playerSelection, computerSelection) {
-  let choice = prompt("Round " + roundNumber + "\n\nRock, Paper, or Scissors?");
-  playerSelection = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
-  computerSelection = computerPlay();
-
-  console.log("Player chose: " + playerSelection + " | " + "Computer chose: " + computerSelection);
-  
-  // Error & Draw check
-  if ((playerSelection !== "Rock") && (playerSelection !== "Paper") && (playerSelection !== "Scissors")) {
-    console.log("Looks like the player made an invalid choice, awaiting a new choice...");
-    alert('Please enter a valid choice. ("Rock", "Paper", or "Scissors")')
-    return playRound();
-  } else if (playerSelection === computerSelection) {
-    roundResult = "Draw!";
-    return;
+  roundNumber++
+  // console.log(`Player chose: ${playerSelection} | Computer chose: ${computerSelection}`);
+   // Error & Draw check
+  if (playerSelection === computerSelection) {
+    roundResult = 'Draw!';
   } 
-
   // Player selects Rock
-  if (playerSelection == "Rock") {
-    if (computerSelection == "Paper") {
+  if (playerSelection == 'Rock') {
+    if (computerSelection == 'Paper') {
       computerScore++;
-      roundResult = "You lose! Rock gets covered by Paper!";
-      return;
-    } else {
+      roundResult = 'You lose! Rock gets covered by Paper!';
+    } else if (computerSelection == 'Scissors') {
       playerScore++;
-      roundResult = "You win! Rock smashes Scissors!";
-      return;
+      roundResult = 'You win! Rock smashes Scissors!';
     }
   }
-
   // Player selects Paper
-  if (playerSelection == "Paper") {
-    if (computerSelection == "Scissors") {
+  if (playerSelection == 'Paper') {
+    if (computerSelection == 'Scissors') {
       computerScore++;
-      roundResult = "You lose! Paper gets cut by Scissors!";
-      return;
-    } else {
+      roundResult = 'You lose! Paper gets cut by Scissors!';
+    } else if (computerSelection == 'Rock') {
       playerScore++;
-      roundResult = "You win! Paper covers Rock!";
-      return;
+      roundResult = 'You win! Paper covers Rock!';
     }
   }
-
   // Player selects Scissors
-  if (playerSelection == "Scissors") {
-    if (computerSelection == "Rock") {
+  if (playerSelection == 'Scissors') {
+    if (computerSelection == 'Rock') {
       computerScore++;
-      roundResult = "You lose! Scissors get smashed by Rock!";
-      return;
-    } else {
+      roundResult = 'You lose! Scissors get smashed by Rock!';
+    } else if (computerSelection == 'Paper') {
       playerScore++;
-      roundResult = "You win! Scissors cut Paper!";
-      return;
+      roundResult = 'You win! Scissors cut Paper!';
     }
   }
-
+  resultBox.textContent = roundResult;
+  winCheck();
 }
 
-// Loops playRound 5 times to play a full game of rock paper scissors
-function game() {
-  // Loop to play through 5 games
-  for (i = 1; i < 6; i++) {
-    roundNumber++;
-    // Play a round of Rock Paper Scissors
-    playRound();
-    
-    console.log(roundResult);
-
-    // Final score check
-    if (i === 5) {
-      if (playerScore > computerScore) {
-        console.log("Congratulations! You won " + playerScore + " to " + computerScore + ".");
-        return;
-      } else if (playerScore < computerScore) {
-        console.log("Sorry, it looks like you lost " + playerScore + " to " + computerScore + ".");
-        return;
-      } else {
-        console.log("Looks like it was a draw! " + playerScore + " to " + computerScore + ".");
-        return;
-      }
+function winCheck() {
+  if (roundNumber === 5) {
+    if (playerScore > computerScore) {
+       winBox.textContent = `Congratulations! You won ${playerScore} to ${computerScore}.`;
+      playAgain();
+    } else if (computerScore > playerScore) {
+      winBox.textContent = `Sorry, it looks like you lost ${playerScore} to ${computerScore}.`;
+      playAgain();
+    } else {
+      winBox.textContent = `Looks like it was a draw! ${playerScore} to ${computerScore}.`;
+      playAgain();
     }
   }
 }
 
-game();
+function clickedReset() {
+  allButtons.forEach((e) => {
+    e.classList.remove('clicked');
+  });
+}
+
+function playAgain() {
+  playAgainBtn.classList.toggle('hidden');
+}
+
+function reset() {
+  roundNumber = 0;
+  playerScore = 0;
+  computerScore = 0;
+  resultBox.textContent = '';
+  winBox.textContent = '';
+}
+
+
