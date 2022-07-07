@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Rock Paper Scissors</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="player-buttons">
+        <button class="player-rock rps-btn hidden">ROCK</button>
+        <button class="player-paper rps-btn hidden">PAPER</button>
+        <button class="player-scissors rps-btn hidden">SCISSORS</button>
+      </div>
 
-  <div class="container">
-    <div class="player-buttons">
-      <button class="player-rock rps-btn hidden">ROCK</button>
-      <button class="player-paper rps-btn hidden">PAPER</button>
-      <button class="player-scissors rps-btn hidden">SCISSORS</button>
-    </div>
-    
-    <div class="text">
-      <p class="round-result">Press Play to start!</p>
-      <p class="win"></p>
-    </div>
+      <div class="text">
+        <p class="round-result">Press Play to start!</p>
+        <p class="win"></p>
+      </div>
 
-    <div class="computer-buttons">
-      <button class="computer-rock rps-btn hidden">ROCK</button>
-      <button class="computer-paper rps-btn hidden">PAPER</button>
-      <button class="computer-scissors rps-btn hidden">SCISSORS</button>
+      <div class="computer-buttons">
+        <button class="computer-rock rps-btn hidden">ROCK</button>
+        <button class="computer-paper rps-btn hidden">PAPER</button>
+        <button class="computer-scissors rps-btn hidden">SCISSORS</button>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <button class="play-btn">Play!</button>
-    <button class="play-btn play-again-btn hidden">Play Again?</button>
-  </div>
-</body>
-<script src="app.js"></script>
+    <div class="container">
+      <button class="play-btn">Play!</button>
+      <button class="play-btn play-again-btn hidden">Play Again?</button>
+    </div>
+  </body>
+  <script src="app.js"></script>
 </html>

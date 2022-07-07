@@ -34,21 +34,21 @@ function hiddenToggle(group) {
 
 // ROCK EVENT LISTENER
 const pickRock = document.querySelector('.player-rock');
-pickRock.addEventListener('click', () => { 
+pickRock.addEventListener('click', () => {
   clickedReset();
   playerChoice('Rock');
   pickRock.classList.add('clicked');
- });
+});
 // PAPER EVEN LISTENER
 const pickPaper = document.querySelector('.player-paper');
-pickPaper.addEventListener('click', () => { 
+pickPaper.addEventListener('click', () => {
   clickedReset();
-  playerChoice('Paper'); 
+  playerChoice('Paper');
   pickPaper.classList.add('clicked');
 });
 // SCISSORS EVENT LISTENER
 const pickScissors = document.querySelector('.player-scissors');
-pickScissors.addEventListener('click', () => { 
+pickScissors.addEventListener('click', () => {
   clickedReset();
   playerChoice('Scissors');
   pickScissors.classList.add('clicked');
@@ -57,19 +57,19 @@ pickScissors.addEventListener('click', () => {
 // Function that creates the Computers choice at random
 function computerChoice() {
   const result = Math.random();
-  const npcRock     = document.querySelector('.computer-rock');
-  const npcPaper    = document.querySelector('.computer-paper');
+  const npcRock = document.querySelector('.computer-rock');
+  const npcPaper = document.querySelector('.computer-paper');
   const npcScissors = document.querySelector('.computer-scissors');
 
-  if (result <= 0.33) {   
-    npcRock.classList.add('clicked'); 
-    return('Rock');
+  if (result <= 0.33) {
+    npcRock.classList.add('clicked');
+    return 'Rock';
   } else if (result <= 0.66) {
     npcPaper.classList.add('clicked');
-    return('Paper'); 
+    return 'Paper';
   } else {
     npcScissors.classList.add('clicked');
-    return('Scissors');
+    return 'Scissors';
   }
 }
 
@@ -81,12 +81,12 @@ function playerChoice(playerInput) {
 
 // Function that runs computerPlay() and then creates a computers choice and compares the two
 function playRound(playerSelection, computerSelection) {
-  roundNumber++
+  roundNumber++;
   // console.log(`Player chose: ${playerSelection} | Computer chose: ${computerSelection}`);
-   // Error & Draw check
+  // Error & Draw check
   if (playerSelection === computerSelection) {
     roundResult = 'Draw!';
-  } 
+  }
   // Player selects Rock
   if (playerSelection == 'Rock') {
     if (computerSelection == 'Paper') {
@@ -124,7 +124,7 @@ function playRound(playerSelection, computerSelection) {
 function winCheck() {
   if (roundNumber === 5) {
     if (playerScore > computerScore) {
-       winBox.textContent = `Congratulations! You won ${playerScore} to ${computerScore}.`;
+      winBox.textContent = `Congratulations! You won ${playerScore} to ${computerScore}.`;
       playAgain();
     } else if (computerScore > playerScore) {
       winBox.textContent = `Sorry, it looks like you lost ${playerScore} to ${computerScore}.`;
@@ -153,5 +153,3 @@ function reset() {
   resultBox.textContent = '';
   winBox.textContent = '';
 }
-
-

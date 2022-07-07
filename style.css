@@ -6,7 +6,7 @@ body {
   height: 500px;
   font-family: Helvetica, 'Dank Mono', Consolas;
   font-size: 1.1rem;
-  background-color: #37393A;
+  background-color: #37393a;
 }
 
 .container {
@@ -40,7 +40,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  margin-top: 50px; 
+  margin-top: 50px;
   height: 150px;
 }
 
@@ -49,15 +49,15 @@ body {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  margin-top: 50px; 
+  margin-top: 50px;
   height: 150px;
 }
 
 .rps-btn {
   width: 90px;
   height: 30px;
-  color: #EEF5DB;
-  background-color: #767B91;
+  color: #eef5db;
+  background-color: #767b91;
   border: 0;
   font-family: Helvetica, 'Dank Mono', Consolas;
 }
@@ -65,20 +65,18 @@ body {
 .play-btn {
   height: 80px;
   width: 200px;
-  color: #EEF5DB;
-  background-color: #39B54A;
+  color: #eef5db;
+  background-color: #39b54a;
   border: 0;
   font-family: Helvetica, 'Dank Mono', Consolas;
-  font-size: 2.0rem;
+  font-size: 2rem;
   margin: 0 auto;
 }
 
 .clicked {
-  background-color: #39B54A;
+  background-color: #39b54a;
 }
 
 .hidden {
   display: none;
 }
-
-test
